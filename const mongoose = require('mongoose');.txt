@@ -1,0 +1,34 @@
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/spa_gallery', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const gallerySchema = new mongoose.Schema({
+  image: String,
+  alt: String,
+  description: String,
+});
+
+const GalleryItem = mongoose.model('GalleryItem', gallerySchema);
+
+const galleryData = [
+  { image: 'image/masseur-taking-care-her-client.jpg', alt: 'Spa Image 1', description: 'Spa Treatment' },
+  { image: 'image/christin-hume-0MoF-Fe0w0A-unsplash.jpg', alt: 'Spa Image 4', description: 'Beautiful Interiors' },
+  { image: 'image/clem-onojeghuo-zlABb6Gke24-unsplash.jpg', alt: 'Spa Image 5', description: 'Modern Design' },
+  { image: 'image/mediamodifier-W7AyAs7azHc-unsplash.jpg', alt: 'Spa Image 6', description: 'Peaceful Ambience' },
+  { image: 'image/rosa-rafael-Pe9IXUuC6QU-unsplash.jpg', alt: 'Spa Image 7', description: 'Relaxation Area' },
+  { image: 'image/sam-carter-OL3fzrOhvPo-unsplash.jpg', alt: 'Spa Image 8', description: 'Natural Elements' },
+  { image: 'image/toa-heftiba-a9pFSC8dTlo-unsplash.jpg', alt: 'Spa Image 9', description: 'Serene Setting' },
+  { image: 'image/woman-washing-head-hairsalon.jpg', alt: 'Spa Image 10', description: 'Salon Experience' },
+];
+
+GalleryItem.insertMany(galleryData)
+  .then(() => {
+    console.log('Gallery data inserted successfully!');
+    mongoose.connection.close();
+  })
+  .catch((err) => {
+    console.error('Error inserting gallery data:', err);
+  });

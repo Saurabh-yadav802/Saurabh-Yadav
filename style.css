@@ -1,0 +1,580 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f9c5d1 0%, #f3f4f6 100%);
+  color: #333;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+header {
+  background: linear-gradient(90deg, #f8a5c2 0%, #d4a5f9 100%);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #d4a5f9;
+  border-radius: 0 0 24px 24px;
+}
+
+header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Georgia', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ffffff 70%, #f2f2f2 100%);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown Menu */
+nav ul .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  z-index: 100;
+  padding: 0.5rem 0;
+}
+
+nav ul li:hover > .dropdown {
+  display: block;
+}
+
+nav ul .dropdown a {
+  display: block;
+  padding: 0.5rem 1.2rem;
+  color: #c67a5d;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav ul .dropdown a:hover {
+  background: #fef3c7;
+  color: #b3745b;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, #f8a5c2 60%, #d4a5f9 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 0 0 48px 48px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  font-family: 'Georgia', serif;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  margin: 1.2rem 0;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.hero button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background: #d4a5f9;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(212, 165, 249, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hero button:hover {
+  background: #b48adf;
+  transform: scale(1.05);
+}
+
+/* Gallery Section */
+#gallery {
+  padding: 2.5rem 1rem;
+  background: linear-gradient(90deg, #f9c5d1 0%, #f3f4f6 100%);
+  text-align: center;
+  border-radius: 24px;
+  margin: 2rem 2vw;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+#gallery h2 {
+  color: #d4a5f9;
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  width: 220px;
+  margin: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item p {
+  margin: 0.5rem 0;
+  color: #d4a5f9;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.gallery-item img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.gallery-img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Testimonials Section */
+.testimonials-container {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fef3c7;
+}
+
+.testimonial {
+  margin: 1rem 0;
+  font-style: italic;
+  color: #555;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #9333ea;
+}
+
+/* Pricing Section */
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fef3c7;
+}
+
+.pricing-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  width: 250px;
+}
+
+.pricing-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #9333ea;
+}
+
+.pricing-card p {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 1rem 0;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-card ul li {
+  margin: 0.5rem 0;
+}
+
+/* FAQ Section */
+#faq {
+  padding: 2rem;
+  background-color: #fef3c7;
+}
+
+#faq h2 {
+  text-align: center;
+  color: #9333ea;
+}
+
+.faq-container p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #f8a5c2 70%, #d4a5f9 100%);
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background: #f60eb0;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
+    border-radius: 0 0 12px 12px;
+    display: none;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  #menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  #menu-toggle span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    background: #1ee2f4;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+body.dark-mode header {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+body.dark-mode nav a {
+  color: #60a5fa;
+}
+
+body.dark-mode nav a:hover {
+  background: #1e293b;
+  color: #60a5fa;
+}
+
+body.dark-mode .hero {
+  background: linear-gradient(120deg, #1e293b 60%, #111827 100%);
+  color: #e5e7eb;
+}
+
+body.dark-mode .gallery-item {
+  background: #1e293b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode footer {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+/* Dark Mode Button */
+body.dark-mode .dark-mode-btn {
+  background: #2a2a3e; /* Button matches the dark mode theme */
+  color: #ffcc00; /* Highlighted button text */
+}
+
+body.dark-mode .dark-mode-btn:hover {
+  background: #1e1e2e; /* Slightly darker on hover */
+  color: #e0e0e0;
+}
+
+/* Dark Mode Button */
+.dark-mode-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #444;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.dark-mode-btn:hover {
+  background: #555;
+  transform: scale(1.05);
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+section:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+section:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+/* Keyframes for text animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Keyframes for fade-in and slide-up animation */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for fade-in with 3D effect */
+@keyframes fadeIn3D {
+  0% {
+    opacity: 0;
+    transform: perspective(500px) rotateX(90deg) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(500px) rotateX(0deg) translateY(0);
+  }
+}
+
+/* Style for the animated words */
+.animated-word {
+  display: inline-block;
+  opacity: 0; /* Initially hidden */
+  animation: fadeIn3D 1.5s ease forwards; /* Slower animation */
+}
+
+/* Add delay for each word */
+.animated-word:nth-child(1) {
+  animation-delay: 0.5s; /* Relax */
+}
+
+.animated-word:nth-child(2) {
+  animation-delay: 2s; /* Refresh */
+}
+
+.animated-word:nth-child(3) {
+  animation-delay: 3.5s; /* Rejuvenate */
+}
+
+/* General animation styles */
+.text-motion {
+  opacity: 0;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+.text-fade-up {
+  animation-name: fadeInUp;
+}
+
+.text-fade-left {
+  animation-name: fadeInLeft;
+}
+
+.text-fade-right {
+  animation-name: fadeInRight;
+}
+
+/* Floating effect for text */
+@keyframes float {
+  0% {
+    transform: translateY(0); /* Start at the original position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up slightly */
+  }
+  100% {
+    transform: translateY(0); /* Return to the original position */
+  }
+}
+
+#floating-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #3a2c1a;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  animation: float 3s ease-in-out infinite; /* Apply the floating animation */
+}
