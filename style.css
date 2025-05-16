@@ -223,6 +223,13 @@ nav ul .dropdown a:hover {
   transform: scale(1.05);
 }
 
+#gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
 /* Testimonials Section */
 .testimonials-container {
   text-align: center;
@@ -246,6 +253,7 @@ nav ul .dropdown a:hover {
 /* Pricing Section */
 .pricing-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
@@ -366,6 +374,186 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .signup-btn, .login-btn, .book-btn {
+    position: static;
+    margin: 0.5rem auto;
+    display: block;
+    width: 90%;
+    text-align: center;
+  }
+
+  #dark-mode-toggle {
+    position: static;
+    margin: 1rem auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  #gallery-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .pricing-card p {
+    font-size: 1.2rem;
+  }
+
+  .pricing-card ul {
+    padding: 0;
+    list-style: none;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .fab-book-btn {
+    bottom: 24px;
+    right: 24px;
+    width: auto;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  #feedback-panel {
+    width: 90%;
+    left: 5%;
+    bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 1.5rem 1rem;
+    margin: 1rem 0;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  #gallery-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   background: #1f2937;
@@ -415,14 +603,14 @@ body.dark-mode .dark-mode-btn:hover {
 /* Dark Mode Button */
 .dark-mode-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 100px;
+  right: 10px;
   background: #444;
   color: #fff;
   padding: 0.8rem 1.2rem;
   border: none;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 4rem;
   cursor: pointer;
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -432,6 +620,29 @@ body.dark-mode .dark-mode-btn:hover {
 .dark-mode-btn:hover {
   background: #555;
   transform: scale(1.05);
+}
+
+/* Adjust the size of the Dark Mode button */
+.dark-mode-btn {
+  font-size: 0.8rem; /* Smaller font size */
+  padding: 0.3rem 0.8rem; /* Adjust padding */
+  border-radius: 8px; /* Smaller rounded corners */
+  top: 1rem; /* Adjust vertical position */
+  right: 1rem; /* Adjust horizontal position */
+  width: auto; /* Ensure it adjusts to the text size */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .dark-mode-btn {
+    font-size: 0.75rem; /* Even smaller font size for mobile */
+    padding: 0.2rem 0.6rem; /* Adjust padding for mobile */
+    position: static; /* Stack it with other buttons */
+    margin: 0.5rem auto; /* Center the button */
+    display: block;
+    width: 90%; /* Full width for mobile */
+    text-align: center;
+  }
 }
 
 /* Smooth Fade-In Animation */
@@ -577,4 +788,168 @@ section:nth-child(even) {
   font-family: 'Georgia', serif;
   text-align: center;
   animation: float 3s ease-in-out infinite; /* Apply the floating animation */
+}
+
+/* General Responsive Styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .signup-btn, .login-btn, .book-btn {
+    position: static;
+    margin: 0.5rem auto;
+    display: block;
+    width: 90%;
+    text-align: center;
+  }
+
+  #dark-mode-toggle {
+    position: static;
+    margin: 1rem auto;
+    display: block;
+  }
+}
+
+/* Hero Section Adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Gallery Section Adjustments */
+@media (max-width: 768px) {
+  #gallery-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Pricing Section Adjustments */
+@media (max-width: 768px) {
+  .pricing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .pricing-card p {
+    font-size: 1.2rem;
+  }
+
+  .pricing-card ul {
+    padding: 0;
+    list-style: none;
+  }
+}
+
+/* Footer Adjustments */
+@media (max-width: 768px) {
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Floating Buttons Adjustments */
+@media (max-width: 768px) {
+  .fab-book-btn {
+    bottom: 24px;
+    right: 24px;
+    width: auto;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Adjust the size of the buttons */
+.signup-btn, .login-btn, .book-btn {
+  font-size: 0.9rem; /* Smaller font size */
+  padding: 0.4rem 1rem; /* Adjust padding */
+  border-radius: 12px; /* Smaller rounded corners */
+  top: 1rem; /* Adjust vertical position */
+}
+
+.book-btn {
+  right: 12rem; /* Adjust horizontal position */
+}
+
+.signup-btn {
+  right: 6rem; /* Adjust horizontal position */
+}
+
+.login-btn {
+  right: 1rem; /* Adjust horizontal position */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .signup-btn, .login-btn, .book-btn {
+    font-size: 0.85rem; /* Even smaller font size for mobile */
+    padding: 0.3rem 0.8rem; /* Adjust padding for mobile */
+    position: static; /* Stack buttons vertically */
+    margin: 0.5rem auto; /* Center buttons */
+    display: block;
+    width: 90%; /* Full width for mobile */
+    text-align: center;
+  }
 }
