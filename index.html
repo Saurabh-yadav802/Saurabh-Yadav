@@ -2,1107 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Spa & Salon</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    /* --- FUN MODE THEME --- */
-    body {
-      margin: 0;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background: linear-gradient(120deg, #fffbe9 60%, #f8f6f2 100%);
-      color: #3a2c1a;
-      min-height: 100vh;
-      overflow-x: hidden;
-      animation: fadeInBody 1s;
-    }
-
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Add this animation for the top heading */
-    @keyframes headingMotion {
-      0% {
-        opacity: 0;
-        transform: translateY(-60px) scale(0.95);
-        letter-spacing: 0.2em;
-      }
-      60% {
-        opacity: 1;
-        transform: translateY(10px) scale(1.06);
-        letter-spacing: 0;
-      }
-      80% {
-        transform: translateY(-8px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0px) scale(1);
-      }
-    }
-
-    header {
-      background: linear-gradient(90deg, #a1c4fd 0%, #43e97b 60%, #fffbe9 100%);
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      box-shadow: 0 4px 24px #e0c68e33;
-      border-bottom: 3px solid #e0c68e;
-      border-radius: 0 0 32px 32px;
-    }
-
-    header h1 {
-      margin: 0;
-      color: #bfa14a;
-      font-family: 'Georgia', serif;
-      font-weight: 700;
-      font-size: 2.3rem;
-      letter-spacing: 0.04em;
-      text-shadow: 0 2px 8px #fffbe9;
-      animation: headingMotion 1.4s cubic-bezier(.68,-0.55,.27,1.55);
-    }
-
-    nav {
-      margin-left: 2.5rem;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.2rem;
-      margin: 0;
-      padding: 0;
-      background: transparent;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #2563eb;
-      font-weight: 600;
-      font-size: 1.08rem;
-      padding: 0.5rem 1.3rem;
-      border-radius: 18px;
-      background: linear-gradient(90deg, #fffbe9 70%, #a1c4fd 100%);
-      border: 1.5px solid #43e97b;
-      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-    }
-
-    nav a:hover {
-      background: linear-gradient(90deg, #43e97b 0%, #a1c4fd 100%);
-      color: #fff;
-      box-shadow: 0 2px 12px #43e97b44, 0 0 0 2px #2563eb inset;
-    }
-
-    .hero {
-      background: linear-gradient(120deg, #fffbe9 60%, #ffe6e6 100%);
-      color: #3a2c1a;
-      text-align: center;
-      padding: 4rem 2rem 3rem 2rem;
-      border-radius: 0 0 48px 48px;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 32px #e0c68e22;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      color: #bfa14a;
-      font-family: 'Georgia', serif;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 2px 8px #fffbe9;
-    }
-
-    .hero p {
-      margin: 1.2rem 0;
-      font-size: 1.18rem;
-      color: #3a2c1a;
-      font-family: 'Georgia', serif;
-    }
-
-    .hero button {
-      padding: 1rem 2.2rem;
-      font-size: 1.1rem;
-      background: #e0c68e;
-      color: #fff;
-      border: none;
-      border-radius: 18px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 2px 12px #e0c68e44;
-      transition: background 0.2s, transform 0.15s;
-      margin-top: 1.5rem;
-    }
-
-    .hero button:hover {
-      background: #bfa14a;
-      color: #fffbe9;
-      transform: scale(1.08);
-    }
-
-    #gallery {
-      padding: 2.5rem 1rem 2rem 1rem;
-      background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
-      text-align: center;
-      border-radius: 32px;
-      margin: 2rem 2vw;
-      box-shadow: 0 4px 32px #a1c4fd33;
-    }
-
-    #gallery h2 {
-      color: #bfa14a;
-      font-family: 'Georgia', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.04em;
-      text-shadow: 0 2px 8px #fffbe9;
-      background: linear-gradient(90deg, #ffe6e6 0%, #fffbe9 100%);
-      display: inline-block;
-      padding: 0.2em 1em;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px #e0c68e22;
-    }
-
-    #gallery-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 32px;
-      padding: 20px 0;
-    }
-
-    .gallery-item {
-      background: linear-gradient(120deg, #fffbe9 80%, #ffe6e6 100%);
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #e0c68e22;
-      padding: 1rem 1rem 0.5rem 1rem;
-      width: 220px;
-      margin: 0.5rem;
-      transition: transform 0.18s, box-shadow 0.18s;
-      border: 1.5px solid #e0c68e44;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 2px 8px #e0c68e44;
-      margin-bottom: 0.7rem;
-      transition: transform 0.18s;
-    }
-
-    .gallery-item img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 4px 24px #bfa14a88;
-    }
-
-    .gallery-item p {
-      margin: 0.5rem 0 0.2rem 0;
-      color: #d4a017;
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.01em;
-      font-family: 'Georgia', serif;
-    }
-
-    footer {
-      background: linear-gradient(90deg, #fffbe9 70%, #ffe6e6 100%);
-      text-align: center;
-      padding: 1.2rem 0 1.5rem 0;
-      color: #bfa14a;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-top-left-radius: 32px;
-      border-top-right-radius: 32px;
-      margin-top: 2rem;
-      box-shadow: 0 -4px 32px #e0c68e44;
-    }
-
-    #chatbot-widget {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 250px;
-      background: linear-gradient(120deg, #fffbe9 80%, #ffe6e6 100%);
-      border-radius: 24px 24px 12px 12px;
-      box-shadow: 0 8px 32px #e0c68e44;
-      font-family: 'Georgia', serif;
-      z-index: 9999;
-      overflow: hidden;
-      border: 2px solid #bfa14a;
-      display: none;
-      animation: funPopIn 0.7s;
-    }
-
-    #chatbot-header {
-      background: linear-gradient(90deg, #ffe6e6 0%, #fffbe9 100%);
-      color: #bfa14a;
-      padding: 14px 18px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    #chatbot-close {
-      cursor: pointer;
-      font-size: 1.4rem;
-      margin-left: 8px;
-      color: #bfa14a;
-    }
-
-    #chatbot-messages {
-      height: 180px;
-      overflow-y: auto;
-      padding: 14px;
-      background: #fffbe9;
-      font-size: 1rem;
-      color: #3a2c1a;
-    }
-
-    #chatbot-input {
-      width: 100%;
-      border: none;
-      border-top: 1px solid #e0c68e;
-      padding: 12px 14px;
-      font-size: 1rem;
-      outline: none;
-      background: #ffe6e6;
-      color: #3a2c1a;
-    }
-
-    #chatbot-widget.minimized #chatbot-messages,
-    #chatbot-widget.minimized #chatbot-input {
-      display: none;
-    }
-    #chatbot-widget.minimized {
-      height: auto;
-      width: 180px;
-      cursor: pointer;
-    }
-    #chatbot-widget.active {
-      display: block;
-    }
-    #chatbot-icon {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #bfa14a 0%, #ffe6e6 100%);
-      color: #fff;
-      font-size: 1.7rem;
-      border: none;
-      box-shadow: 0 4px 16px #e0c68e44;
-      cursor: pointer;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, box-shadow 0.2s;
-      animation: funPopIn 0.7s;
-    }
-    #chatbot-icon:hover {
-      background: linear-gradient(135deg, #ffe6e6 0%, #bfa14a 100%);
-      box-shadow: 0 8px 24px #43e97b44;
-      color: #bfa14a;
-    }
-
-    #menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 36px;
-      height: 36px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1100;
-      margin-left: 2rem;
-    }
-    #menu-toggle span {
-      display: block;
-      height: 4px;
-      width: 28px;
-      background: #ff61a6;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    @media (max-width: 900px) {
-      #menu-toggle {
-        display: flex;
-      }
-      nav {
-        margin-left: 0;
-      }
-      nav ul {
-        flex-direction: column;
-        background: #fff6f6;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 90%;
-        max-width: 320px;
-        box-shadow: 0 8px 32px #ff61a644;
-        border-radius: 0 0 24px 24px;
-        padding: 1.2rem 0;
-        z-index: 1000;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
-        transition: max-height 0.25s cubic-bezier(.4,0,.2,1), opacity 0.18s;
-      }
-      nav ul.active {
-        max-height: 500px;
-        opacity: 1;
-        pointer-events: auto;
-        transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.22s;
-      }
-      nav ul li {
-        margin: 0.7rem 0;
-        text-align: left;
-        padding-left: 1.5rem;
-        transition: background 0.18s;
-      }
-      nav a {
-        color: #ff61a6;
-        font-size: 1.1rem;
-        padding: 0.7rem 1.2rem;
-        border-radius: 16px;
-        display: block;
-        background: #fff1eb;
-        transition: background 0.18s, color 0.18s;
-      }
-      nav a:hover {
-        background: #ff61a6;
-        color: #fff176;
-      }
-      .dropdown {
-        display: none;
-        position: static;
-        background: #fff6f6;
-        box-shadow: none;
-        margin-left: 0;
-        padding-left: 1.5rem;
-      }
-      .dropdown.open {
-        display: block;
-        background: #fff1eb;
-        border-left: 3px solid #ff61a6;
-        margin: 0.2rem 0 0.2rem 0.5rem;
-        padding: 0.2rem 0 0.2rem 1.2rem;
-        border-radius: 0 0 12px 12px;
-      }
-      .dropdown.open a {
-        font-size: 1rem;
-        color: #ff61a6;
-        padding-left: 0.5rem;
-      }
-      nav ul li {
-        position: static;
-      }
-    }
-
-    nav ul .dropdown li {
-      font-size: 1rem;         /* Adjust the size as needed (e.g., 0.95rem, 1.1rem) */
-      padding: 0.4em 0.2em;    /* Space above/below each detail */
-      color: #d01573;          /* Fun color for details */
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-
-    nav ul .dropdown li a {
-      color: #0d010e;          /* Link color for email, phone, etc. */
-      font-weight: 600;
-      text-decoration: underline dotted;
-      font-size: 1rem;
-    }
-
-    .signup-btn, .login-btn {
-      position: absolute;
-      top: 1.5rem;
-      font-weight: bold;
-      padding: 0.6rem 1.4rem;
-      border-radius: 18px;
-      text-decoration: none;
-      font-size: 1.05rem;
-      background: linear-gradient(90deg, #43e97b 0%, #a1c4fd 100%);
-      color: #fff;
-      border: none;
-      box-shadow: 0 2px 8px #e0c68e44;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-      z-index: 1200;
-    }
-    .signup-btn { right: 9rem; }
-    .login-btn { right: 2rem; }
-    .signup-btn:hover, .login-btn:hover {
-      background: linear-gradient(90deg, #2563eb 0%, #43e97b 100%);
-      color: #fffbe9;
-      transform: scale(1.08);
-    }
-
-    @media (max-width: 900px) {
-      .signup-btn { right: 7rem; top: 1.1rem; padding: 0.5rem 1.1rem; font-size: 0.98rem;}
-      .login-btn { right: 1rem; top: 1.1rem; padding: 0.5rem 1.1rem; font-size: 0.98rem;}
-    }
-
-    @keyframes bounceHighlight {
-      0%   { box-shadow: 0 0 0 0 #43e97b44; }
-      60%  { box-shadow: 0 0 0 24px #43e97b22; }
-      100% { box-shadow: 0 0 0 0 #43e97b00; }
-    }
-    .section-bounce {
-      animation: bounceHighlight 1s cubic-bezier(.68,-0.55,.27,1.55);
-    }
-    .fun-bounce-btn {
-      position: relative;
-      overflow: hidden;
-    }
-    .fun-bounce-btn:after {
-      content: '';
-      position: absolute;
-      left: 50%; top: 50%;
-      width: 0; height: 0;
-      background: rgba(255,255,255,0.3);
-      border-radius: 100%;
-      transform: translate(-50%,-50%);
-      pointer-events: none;
-      transition: width 0.4s, height 0.4s, opacity 0.4s;
-      opacity: 0;
-    }
-    .fun-bounce-btn:active:after {
-      width: 200px; height: 200px;
-      opacity: 1;
-      transition: 0s;
-    }
-
-    section {
-      background: linear-gradient(120deg, #fff 80%, #ffe6e6 100%);
-      border-radius: 32px;
-      margin: 2rem 2vw;
-      box-shadow: 0 4px 32px #e0c68e22;
-      padding: 2.5rem 1.5rem;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s, transform 0.7s;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section.slide-left { transform: translateX(-60px) scale(0.98); }
-    section.slide-right { transform: translateX(60px) scale(0.98); }
-    section.visible.slide-left,
-    section.visible.slide-right { transform: translateX(0) scale(1); }
-
-    .gallery-item, .testimonials-card, .pricing-card {
-      opacity: 0;
-      transform: translateY(40px) scale(0.96);
-      transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55), transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
-    }
-    .gallery-item.visible, .testimonials-card.visible, .pricing-card.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .animated-bg-shapes {
-      position: fixed;
-      z-index: 0;
-      left: 0; top: 0; width: 100vw; height: 100vh;
-      pointer-events: none;
-      overflow: hidden;
-      will-change: transform;
-      transition: transform 0.2s cubic-bezier(.68,-0.55,.27,1.55);
-    }
-    .shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.18;
-      filter: blur(2px);
-      animation-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
-    }
-    .shape1 {
-      width: 320px; height: 320px;
-      background: linear-gradient(135deg,#43e97b,#38f9d7);
-      left: -80px; top: 10vh;
-      animation: float1 9s infinite alternate;
-    }
-    .shape2 {
-      width: 180px; height: 180px;
-      background: linear-gradient(135deg,#ff61a6,#fcb69f);
-      right: -60px; top: 60vh;
-      animation: float2 7s infinite alternate;
-    }
-    .shape3 {
-      width: 120px; height: 120px;
-      background: linear-gradient(135deg,#a1c4fd,#c2e9fb);
-      left: 60vw; bottom: -60px;
-      animation: float3 11s infinite alternate;
-    }
-    @keyframes float1 { 0%{top:10vh;} 100%{top:18vh; left:30px;} }
-    @keyframes float2 { 0%{top:60vh;} 100%{top:54vh; right:10vw;} }
-    @keyframes float3 { 0%{bottom:-60px;} 100%{bottom:30px; left:65vw;} }
-
-    section,
-    .gallery-item, .testimonials-card, .pricing-card {
-      transition-duration: 0.5s !important;
-    }
-    section,
-    .gallery-item, .testimonials-card, .pricing-card {
-      transition-timing-function: cubic-bezier(.68,-0.55,.27,1.55) !important;
-    }
-
-    .wave-divider {
-      line-height: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .book-btn {
-      position: absolute;
-      right: 17rem;
-      top: 1.5rem;
-      background: linear-gradient(90deg, #2563eb 0%, #43e97b 100%);
-      color: #fff;
-      font-weight: bold;
-      padding: 0.6rem 1.4rem;
-      border-radius: 18px;
-      text-decoration: none;
-      font-size: 1.05rem;
-      box-shadow: 0 2px 8px #2563eb44;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-      z-index: 1200;
-    }
-    .book-btn:hover {
-      background: linear-gradient(90deg, #43e97b 0%, #2563eb 100%);
-      color: #fffbe9;
-      transform: scale(1.08);
-    }
-    @media (max-width: 1200px) {
-      .book-btn { right: 15rem; }
-    }
-    @media (max-width: 900px) {
-      .book-btn { right: 13rem; top: 1.1rem; padding: 0.5rem 1.1rem; font-size: 0.98rem;}
-    }
-
-    .fab-book-btn {
-      position: fixed;
-      bottom: 90px;
-      right: 24px;
-      background: linear-gradient(135deg, #2563eb 0%, #43e97b 100%);
-      color: #fff;
-      font-weight: bold;
-      padding: 1rem 1.5rem;
-      border-radius: 32px;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 16px #2563eb44;
-      z-index: 1201;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .fab-book-btn:hover {
-      background: linear-gradient(135deg, #43e97b 0%, #2563eb 100%);
-      transform: scale(1.08);
-    }
-
-    #feedback-panel {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      width: 270px;
-      background: linear-gradient(120deg, #fffbe9 80%, #a1c4fd 100%);
-      border-radius: 18px 18px 12px 12px;
-      box-shadow: 0 8px 32px #a1c4fd44;
-      font-family: 'Georgia', serif;
-      z-index: 9999;
-      overflow: hidden;
-      border: 2px solid #43e97b;
-      animation: funPopIn 0.7s;
-    }
-    #feedback-header {
-      background: linear-gradient(90deg, #a1c4fd 0%, #43e97b 100%);
-      color: #fff;
-      padding: 12px 16px;
-      font-weight: bold;
-      font-size: 1.08rem;
-      letter-spacing: 0.02em;
-      
-    }
-    #feedback-content {
-      padding: 12px 16px;
-      max-height: 140px;
-      overflow-y: auto;
-      background: #fffbe9;
-    }
-    .feedback-item {
-      margin-bottom: 1em;
-      color: #2563eb;
-      font-size: 1rem;
-      border-bottom: 1px solid #e0c68e33;
-      padding-bottom: 0.5em;
-    }
-    .feedback-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    #typing-effect {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #3a2c1a;
-      font-family: 'Georgia', serif;
-      display: inline-block;
-      border-right: 2px solid #3a2c1a;
-      animation: blink 0.7s steps(2, start) infinite;
-    }
-
-    @keyframes blink {
-      0% {
-        border-color: transparent;
-      }
-      50% {
-        border-color: #3a2c1a;
-      }
-      100% {
-        border-color: transparent;
-      }
-    }
-
-    #floating-text {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #3a2c1a;
-      font-family: 'Georgia', serif;
-      text-align: center;
-      animation: float 3s ease-in-out infinite;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.5);
-    }
-  </style>
 </head>
 <body>
-  <button id="dark-mode-toggle" class="dark-mode-btn">🌙 Dark Mode</button>
   <header>
-    <h1 class="text-motion text-fade-up">My Spa & Salon</h1>
-    <button id="menu-toggle" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <h1 id="main-title">My Spa & Salon</h1>
+    <p class="tagline">Experience luxury spa and salon services at your fingertips</p>
     <nav>
-      <ul>
-        <li><a href="#" class="text-motion text-fade-left">Home</a></li>
-        <li><a href="#" class="text-motion text-fade-left">Services</a></li>
-        <li><a href="#" class="text-motion text-fade-left">About</a></li>
-        <li><a href="#" class="text-motion text-fade-left">Contact</a></li>
-      </ul>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a href="signup.html" class="signup-btn">Sign Up</a>
-    <a href="login.html" class="login-btn">Login</a>
+    <button id="theme-toggle" aria-label="Toggle dark mode" style="margin: top 15px; border-radius:10px; padding:8px 18px; border:none; background:#e9f87d; color:#1b80f5; font-weight:bold; cursor:pointer; display:flex; align-items:center; gap:1px;">
+      <span id="theme-icon" style="display:inline-block; vertical-align:middle;">
+        <!-- Moon SVG (default) -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#006666" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 0111.21 3a1 1 0 00-1.09 1.32A7 7 0 1019.68 13.88a1 1 0 001.32-1.09z"/></svg>
+      </span>
+      <span id="theme-text">Dark Mode</span>
+    </button>
   </header>
 
-  <section class="hero">
-    <h2 class="text-motion text-fade-up">
-      <span class="animated-word">Relax.</span>
-      <span class="animated-word">Refresh.</span>
-      <span class="animated-word">Rejuvenate.</span>
-    </h2>
-    <p id="typing-effect"></p>
-    <button id="view-services-btn" class="text-motion text-fade-up">View Services</button>
+  <section id="about">
+    <div class="about-motto" id="about-motto"></div>
+    <h2>About Us</h2>
+    <p>Welcome to My Spa & Salon — where luxury meets care. We offer a full range of spa and salon services to help you relax, refresh, and feel your best.</p>
   </section>
 
   <section id="services">
-    <!-- Your services content here -->
+    <h2>Our Services</h2>
+    <ul>
+      <li>Haircut & Styling</li>
+      <li>Facial Treatments</li>
+      <li>Body Massage</li>
+      <li>Manicure & Pedicure</li>
+      <li>Hair Spa</li>
+      <li>Waxing</li>
+    </ul>
   </section>
-<!-- SVG Wave Divider -->
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 100" width="100%" height="100" preserveAspectRatio="none">
-    <path d="M0,40 C480,140 960,0 1440,60 L1440,100 L0,100 Z" fill="#a1c4fd" opacity="0.7"/>
-    <path d="M0,60 C480,0 960,140 1440,40 L1440,100 L0,100 Z" fill="#ff61a6" opacity="0.3"/>
-  </svg>
-</div>
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 100" width="100%" height="100" preserveAspectRatio="none">
-    <path d="M0,40 C480,140 960,0 1440,60 L1440,100 L0,100 Z" fill="#00f0ff" opacity="0.7"/>
-    <path d="M0,60 C480,0 960,140 1440,40 L1440,100 L0,100 Z" fill="#ff61a6" opacity="0.3"/>
-  </svg>
-</div>
 
   <section id="gallery">
-  <h2 class="text-motion text-fade-up">Our Gallery</h2>
-  <div class="gallery" id="gallery-container">
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/masseur-taking-care-her-client.jpg" alt="Spa Image 1" />
-      <p class="text-motion text-fade-up">Spa Treatment</p>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="christin-hume-0MoF-Fe0w0A-unsplash.jpg" alt="Spa Room" />
+        <div class="gallery-caption">Spa Room</div>
+      </div>
+      <div class="gallery-item">
+        <img src="clem-onojeghuo-zlABb6Gke24-unsplash.jpg" alt="Salon Area" />
+        <div class="gallery-caption">Salon Area</div>
+      </div>
+      <div class="gallery-item">
+        <img src="masseur-taking-care-her-client.jpg" alt="Massage Therapy" />
+        <div class="gallery-caption">Massage Therapy</div>
+      </div>
+      <div class="gallery-item">
+        <img src="mediamodifier-W7AyAs7azHc-unsplash.jpg" alt="Relaxation" />
+        <div class="gallery-caption">Relaxation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="rosa-rafael-Pe9IXUuC6QU-unsplash.jpg" alt="Aromatherapy" />
+        <div class="gallery-caption">Aromatherapy</div>
+      </div>
+      <div class="gallery-item">
+        <img src="sam-carter-OL3fzrOhvPo-unsplash.jpg" alt="Peaceful Ambience" />
+        <div class="gallery-caption">Peaceful Ambience</div>
+      </div>
     </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/christin-hume-0MoF-Fe0w0A-unsplash.jpg" alt="Spa Image 4" />
-      <p class="text-motion text-fade-up">Beautiful Interiors</p>
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/clem-onojeghuo-zlABb6Gke24-unsplash.jpg" alt="Spa Image 5" />
-      <p>Modern Design</p>
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/mediamodifier-W7AyAs7azHc-unsplash.jpg" alt="Spa Image 6" />
-      <p>Peaceful Ambience</p>
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/rosa-rafael-Pe9IXUuC6QU-unsplash.jpg" alt="Spa Image 7" />
-      <p>Relaxation Area</p>
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/sam-carter-OL3fzrOhvPo-unsplash.jpg" alt="Spa Image 8" />
-      <p>Natural Elements</p>
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/toa-heftiba-a9pFSC8dTlo-unsplash.jpg" alt="Spa Image 9" />
-      <p>Serene Setting</p>
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/Saurabh-yadav802/Saurabh-Yadav/refs/heads/main/woman-washing-head-hairsalon.jpg" alt="Spa Image 10" />
-      <p>Salon Experience</p>
-    </div>
-  </div>
-</section>
+    <video controls autoplay muted width="600">
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
 
-  <section id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonials-container">
-      <div class="testimonial">
-        <p>"Absolutely relaxing! The best spa experience in town."</p>
-        <span>- Aditya D.</span>
-      </div>
-      <div class="testimonial">
-        <p>"Professional staff and beautiful ambience. Highly recommended!"</p>
-        <span>- Prashant Y.</span>
-      </div>
-      <div class="testimonial">
-        <p>"Loved the facial and massage package. Will visit again!"</p>
-        <span>- Sneha L.</span>
-      </div>
-    </div>
+  <section id="like">
+    <h2>Like Our Gallery?</h2>
+    <button id="like-btn" style="font-size:1.3em;padding:12px 32px;border-radius:8px;background:#ffd700;color:#006666;border:none;cursor:pointer;">
+      👍 Like <span id="like-count">0</span>
+    </button>
   </section>
 
-  <section id="pricing">
-    <h2>Our Pricing</h2>
-    <div class="pricing-container">
-      <div class="pricing-card">
-        <h3>Basic Spa</h3>
-        <p>₹999</p>
-        <ul>
-          <li>30 min Massage</li>
-          <li>Mini Facial</li>
-        </ul>
-      </div>
-      <div class="pricing-card">
-        <h3>Premium Spa</h3>
-        <p>₹1999</p>
-        <ul>
-          <li>60 min Massage</li>
-          <li>Full Facial</li>
-          <li>Manicure</li>
-        </ul>
-      </div>
-      <div class="pricing-card">
-        <h3>Luxury Spa</h3>
-        <p>₹2999</p>
-        <ul>
-          <li>90 min Massage</li>
-          <li>Gold Facial</li>
-          <li>Mani & Pedi</li>
-          <li>Hair Spa</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-container">
-      <p><strong>Q: Do I need to book in advance?</strong><br>A: Advance booking is recommended, but walk-ins are welcome if slots are available.</p>
-      <p><strong>Q: What payment methods do you accept?</strong><br>A: We accept cash, cards, and UPI payments.</p>
-      <p><strong>Q: Are your products organic?</strong><br>A: Yes, we use high-quality, organic products for all treatments.</p>
-    </div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: +91 9136726302</p>
+    <p>Email: Saurabh8422044665@gmail.com</p>
+    <a class="whatsapp" href="https://wa.me/" target="_blank">Chat on WhatsApp</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 My Spa & Salon. All rights reserved.</p>
+    <p>© 2025 My Spa & Salon. All rights reserved.</p>
   </footer>
-
-  <!-- Simple Chatbot Widget -->
-  <div id="chatbot-widget">
-    <div id="chatbot-header">💬 Chat with us!
-      <span id="chatbot-close" title="Close">&times;</span>
-    </div>
-    <div id="chatbot-messages"></div>
-    <input id="chatbot-input" type="text" placeholder="Type your message..." autocomplete="off" />
-  </div>
-  <button id="chatbot-icon" title="Chat with us">
-    💬
-  </button>
-    <div class="shape shape2"></div>
-    <div class="shape shape3"></div>
-  <a href="booking.html" class="book-btn">Book Appointment</a>
-  <a href="booking.html" class="fab-book-btn" title="Book Appointment">📅 Book</a>  
-
-  <!-- Booking Form START -->
-  <form id="booking-form">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="date" name="date" required />
-    <input type="time" name="time" required />
-    <button type="submit">Book Appointment</button>
-  </form>
-  <div id="booking-message"></div>
-  <!-- Booking Form END -->
-
-  <p id="typing-effect"></p>
-  <p id="floating-text">Experience luxury spa and salon services at your fingertips.</p>
-
   <script>
-    const chatbotWidget = document.getElementById('chatbot-widget');
-    const chatbotHeader = document.getElementById('chatbot-header');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotIcon = document.getElementById('chatbot-icon');
-
-    async function getBotResponse(input) {
-      // Replace 'YOUR_OPENAI_API_KEY' with your real API key
-      const apiKey = 'YOUR_OPENAI_API_KEY';
-      const endpoint = 'https://api.openai.com/v1/chat/completions';
-
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [
-            { role: "system", content: "You are a helpful spa and salon assistant." },
-            { role: "user", content: input }
-          ],
-          max_tokens: 80,
-          temperature: 0.7
-        })
-      });
-
-      const data = await response.json();
-      return data.choices && data.choices[0] ? data.choices[0].message.content.trim() : "Sorry, I couldn't process that.";
-    }
-
-    // Send message
-    chatbotInput.addEventListener('keydown', async function(e) {
-      if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
-        const userMsg = chatbotInput.value;
-        chatbotMessages.innerHTML += `<div><b>You:</b> ${userMsg}</div>`;
-        chatbotInput.value = '';
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        // Show "typing..." while waiting
-        chatbotMessages.innerHTML += `<div id="typing-msg"><i>SpaBot is typing...</i></div>`;
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        const botMsg = await getBotResponse(userMsg);
-        document.getElementById('typing-msg').remove();
-        chatbotMessages.innerHTML += `<div style="color:#2563eb;"><b>SpaBot:</b> ${botMsg}</div>`;
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    // Typing effect for the title
+    const title = "My Spa & Salon";
+    const titleElement = document.getElementById("main-title");
+    titleElement.textContent = "";
+    let i = 0;
+    function typeTitle() {
+      if (i < title.length) {
+        titleElement.textContent += title.charAt(i);
+        i++;
+        setTimeout(typeTitle, 120);
       }
-    });
-
-    // Minimize/maximize
-    chatbotHeader.onclick = function() {
-      chatbotWidget.classList.toggle('minimized');
-    };
-
-    // Close chatbot
-    chatbotClose.onclick = function(e) {
-      e.stopPropagation();
-      chatbotWidget.classList.remove('active');
-      chatbotIcon.style.display = 'flex';
-    };
-
-    // Open chatbot
-    chatbotIcon.onclick = function() {
-      chatbotWidget.classList.add('active');
-      chatbotIcon.style.display = 'none';
-    };
-
-    const menuToggle = document.getElementById('menu-toggle');
-    const navUl = document.querySelector('nav ul');
-    menuToggle.onclick = function() {
-      navUl.classList.toggle('active');
-    };
-
-    document.querySelectorAll('nav ul > li > a').forEach(link => {
-      link.onclick = function(e) {
-        // Check if this link has a dropdown menu
-        const dropdown = this.nextElementSibling;
-        if (dropdown && dropdown.classList.contains('dropdown')) {
-          // Prevent closing the menu and allow dropdown to open
-          e.preventDefault();
-          dropdown.classList.toggle('open');
-        } else {
-          // Close the menu if it's a normal link
-          navUl.classList.remove('active');
-        }
-      };
-    });
-
-    document.getElementById('view-services-btn').onclick = function() {
-      const section = document.getElementById('services');
-      section.scrollIntoView({ behavior: 'smooth' });
-      section.classList.remove('section-bounce'); // Reset if already animated
-      setTimeout(() => {
-        section.classList.add('section-bounce');
-      }, 400); // Wait for scroll to finish before animating
-      setTimeout(() => {
-        section.classList.remove('section-bounce');
-      }, 1400); // Remove animation class after animation
-    };
-
-    document.querySelectorAll('section').forEach(section => {
-      section.classList.add('visible'); // Show on load for no-JS fallback
-    });
-
-    document.querySelectorAll('section').forEach((section, i) => {
-      section.classList.add(i % 2 === 0 ? 'slide-left' : 'slide-right');
-    });
-
-    function revealOnScroll() {
-      document.querySelectorAll('section').forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-          section.classList.add('visible');
-        }
-      });
     }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
+    typeTitle();
 
-    function revealCardsOnScroll() {
-      document.querySelectorAll('.gallery-item, .testimonials-card, .pricing-card').forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) {
-          card.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', revealCardsOnScroll);
-    window.addEventListener('DOMContentLoaded', revealCardsOnScroll);
-
-    window.addEventListener('scroll', function() {
-      const scrolled = window.scrollY;
-      document.querySelector('.animated-bg-shapes').style.transform =
-        `translateY(${scrolled * 0.15}px)`;
+    // Like button functionality
+    const likeBtn = document.getElementById('like-btn');
+    const likeCount = document.getElementById('like-count');
+    let count = 0;
+    likeBtn.addEventListener('click', function() {
+      count++;
+      likeCount.textContent = count;
+      likeBtn.style.background = "#ffe066";
     });
 
-    document.getElementById('booking-form').onsubmit = async function(e) {
-      e.preventDefault();
-      const name = this.name.value;
-      const date = this.date.value;
-      const time = this.time.value;
-      const res = await fetch('http://localhost:3000/book', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, date, time })
-      });
-      const data = await res.json();
-      document.getElementById('booking-message').innerText = data.message;
-      this.reset();
-    };
-
-    async function fetchGallery() {
-      const response = await fetch('http://localhost:3000/gallery');
-      const galleryItems = await response.json();
-      const galleryContainer = document.getElementById('gallery-container');
-      galleryContainer.innerHTML = galleryItems
-        .map(
-          (item) => `
-          <div class="gallery-item">
-            <img src="${item.image}" alt="${item.alt}" />
-            <p>${item.description}</p>
-          </div>
-        `
-        )
-        .join('');
-    }
-
-    fetchGallery();
-
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-
-    // Check for saved user preference
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-      body.classList.add('dark-mode');
-      darkModeToggle.textContent = '☀️ Light Mode';
-    }
-
-    darkModeToggle.addEventListener('click', () => {
-      if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        darkModeToggle.textContent = '🌙 Dark Mode';
-        localStorage.setItem('dark-mode', 'disabled');
-      } else {
-        body.classList.add('dark-mode');
-        darkModeToggle.textContent = '☀️ Light Mode';
-        localStorage.setItem('dark-mode', 'enabled');
+    // Stylish animated motto
+    const mottoWords = ["Relax.", "Refresh.", "Rejuvenate."];
+    const mottoEl = document.getElementById("about-motto");
+    let word = 0;
+    function showMottoWord() {
+      if (word < mottoWords.length) {
+        // Create a span for each word with animation class
+        const span = document.createElement('span');
+        span.textContent = mottoWords[word] + " ";
+        span.className = "motto-word";
+        mottoEl.appendChild(span);
+        word++;
+        setTimeout(showMottoWord, 900);
       }
-    });
-
-    // Function to reveal text on scroll
-    function revealTextOnScroll() {
-      const textElements = document.querySelectorAll('.text-motion');
-      textElements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          element.style.opacity = '1';
-          element.style.animationPlayState = 'running';
+    }
+    showMottoWord();
+  </script>
+  <script>
+    // Animated smooth scroll with ease for nav links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 20, // adjust offset as needed
+            behavior: 'smooth'
+          });
+          // Optional: Add a little bounce effect
+          target.animate([
+            { transform: 'translateY(-12px)' },
+            { transform: 'translateY(0)' }
+          ], {
+            duration: 500,
+            easing: 'cubic-bezier(.68,-0.55,.27,1.55)'
+          });
         }
       });
-    }
-
-    // Trigger the function on scroll and page load
-    window.addEventListener('scroll', revealTextOnScroll);
-    window.addEventListener('DOMContentLoaded', revealTextOnScroll);
-
-    // Typing effect function
-    function typeEffect(element, text, speed) {
-      let index = 0;
-
-      function type() {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, speed);
-        }
-      }
-
-      type();
-    }
-
-    // Apply the typing effect
-    document.addEventListener("DOMContentLoaded", () => {
-      const typingElement = document.getElementById("typing-effect");
-      const text = "Experience luxury spa and salon services at your fingertips.";
-      const typingSpeed = 50; // Adjust typing speed (milliseconds per character)
-      typeEffect(typingElement, text, typingSpeed);
     });
   </script>
-  <script src="script.js"></script>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    const body = document.body;
+    let dark = false;
+
+    const moonSVG = `<svg width="22" height="22" viewBox="0 0 24 24" fill="#006666" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 0111.21 3a1 1 0 00-1.09 1.32A7 7 0 1019.68 13.88a1 1 0 001.32-1.09z"/></svg>`;
+    const sunSVG = `<svg width="22" height="22" viewBox="0 0 24 24" fill="#ffd700" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"/><g><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>`;
+
+    themeToggle.addEventListener('click', function() {
+      dark = !dark;
+      body.classList.toggle('dark-mode', dark);
+      if (dark) {
+        themeIcon.innerHTML = sunSVG;
+        themeText.textContent = 'Light Mode';
+      } else {
+        themeIcon.innerHTML = moonSVG;
+        themeText.textContent = 'Dark Mode';
+      }
+    });
+  </script>
 </body>
 </html>
